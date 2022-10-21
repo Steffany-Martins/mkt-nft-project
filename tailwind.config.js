@@ -7,6 +7,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        'nft-white': '#fff',
         'regal-blue': '#243c5a',
         'nft-dark': '#24252D',
         'nft-gray-1': '#E3E1E3',

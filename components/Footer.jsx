@@ -47,7 +47,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="flex-wrap flex-1 ml-10 flexBetweenStart md:ml-0 md-mt-8">
+        <div className="flex-wrap flex-1 ml-10 flexBetweenStart md:ml-0 md:mt-8">
           <FooterLinks
             heading="CryptoKet"
             items={['Explore', 'How it Works', 'Contact Us']}
@@ -59,8 +59,8 @@ const Footer = () => {
         </div>
       </div>
       <div className="w-full px-16 mt-5 border-t flexCenter dark:border-nft-black-1 border-nft-gray-1 sm:px-4">
-        <div className="flex-row w-full flexBetween minmd:4/5 sm:flex-col mt-7">
-          <p className="text-base font-semibold font-poppins dark:text-white text-nft-black-1">
+        <div className="flex-row w-full flexBetween minmd:w-4/5 sm:flex-col mt-7">
+          <p className="text-base font-semibold font-poppins dark:text-white text-nft-black-1 sm:mb-4">
             CryptopKet, Inc. All rights reserved.
           </p>
           {[
@@ -69,7 +69,7 @@ const Footer = () => {
             images.telegram,
             images.discord,
           ].map((image, index) => (
-            <div className="mx-2 cursor-pointer" key={index}>
+            <div className="mx-2 cursor-pointer sm:my-3" key={index}>
               <Image
                 src={image}
                 objectFit="contain"

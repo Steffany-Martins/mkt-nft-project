@@ -81,7 +81,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed z-10 flex-row w-full p-4 border-b flexBetween dark:bg-neft-dark bg:white dark:border-nft-black-1 border-nft-gray-1">
+    <nav className="fixed z-10 flex-row w-full p-4 border-b flexBetween dark:bg-nft-dark bg:nft-white dark:border-nft-black-1 border-nft-gray-1">
       <div>
         <Link href="/">
           <div className="cursor-pointer flexCenter md:hidden">
