@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
-import { Banner, CreatorCard } from '../components';
+import { Banner, CreatorCard, NFTCard } from '../components';
 import { makeId } from '../utils/makeId';
 import images from '../assets';
 
@@ -52,9 +52,8 @@ const Home = () => {
           childStyles="md:text-4xl sm:text-2xl xs=text-xl text-left"
         />
         <div>
-          <h1 className="font-poppins dark:text-white text-nft-black-1 text-2xl minlg:text-4xl font-semibold ml-4 xs:ml-0">
-            {' '}
-            Best Creators{' '}
+          <h1 className="before:first:font-poppins dark:text-white text-nft-black-1 text-2xl minlg:text-4xl font-semibold ml-4 xs:ml-0">
+            Best Creators
           </h1>
           <div className="relative flex-1 max-w-full flex mt-3" ref={parentRef}>
             <div
@@ -77,33 +76,52 @@ const Home = () => {
                     onClick={() => handleScrollCarousel('left')}
                     className="absolute w-8 h-8 minlg:w-12 minlg:h-12 top-45 cursor-pointer left-0"
                   >
-                    <div className="relative">
-                      <Image
-                        src={images.left}
-                        layout="fill"
-                        object="contain"
-                        alt="left_arrow"
-                        className={theme === 'light' && 'filter invert'}
-                      />
-                    </div>
+                    <Image
+                      src={images.left}
+                      layout="fill"
+                      object="contain"
+                      alt="left_arrow"
+                      className={theme === 'light' && 'filter invert'}
+                    />
                   </div>
                   <div
                     onClick={() => handleScrollCarousel('right')}
                     className="absolute w-8 h-8 minlg:w-12 minlg:h-12 top-45 cursor-pointer right-0"
                   >
-                    <div className="relative">
-                      <Image
-                        src={images.right}
-                        layout="fill"
-                        object="contain"
-                        alt="right_arrow"
-                        className={theme === 'light' && 'filter invert'}
-                      />
-                    </div>
+                    <Image
+                      src={images.right}
+                      layout="fill"
+                      object="contain"
+                      alt="right_arrow"
+                      className={theme === 'light' && 'filter invert'}
+                    />
                   </div>
                 </>
               )}
             </div>
+          </div>
+        </div>
+        <div className="mt-10">
+          <div className="flexBetween mx-4 xs:mx-0 minlg:mx-8 sm:flex-col sm:items-start">
+            <h1 className="flex-1 before:first:font-poppins dark:text-white text-nft-black-1 text-2xl minlg:text-4xl font-semibold sm:mb-4">
+              Hot Bids
+            </h1>
+            <div className="flex-2 sm:w-full flex flex-row sm:flex-col">SearchBar</div>
+          </div>
+          <div className="mt-3 w-full flex flex-wrap justify-start md:justify-center">
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => (
+              <NFTCard
+                key={`nft-${i}`}
+                nft={{
+                  i,
+                  name: `Nifty NET ${i}`,
+                  price: (10 - i * 0.537).toFixed(2),
+                  seller: `0x${makeId(3)}...${makeId(4)}`,
+                  owner: `0x${makeId(3)}...${makeId(4)}`,
+                  description: 'Cool NFT on Sale',
+                }}
+              />
+            ))}
           </div>
         </div>
       </div>
