@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import { useTheme } from 'next-themes';
 import { Banner, CreatorCard, NFTCard } from '../components';
 import { makeId } from '../utils/makeId';

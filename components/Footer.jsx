@@ -1,5 +1,4 @@
-/* eslint-disable import/no-cycle */
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import { useTheme } from 'next-themes';
 
 import images from '../assets';
