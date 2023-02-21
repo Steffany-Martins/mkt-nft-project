@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback } from 'react';
+import { useState, useMemo, useCallback, useContext } from 'react';
 // import { useRouter } from 'next/router';
 import { useDropzone } from 'react-dropzone';
 import Image from 'next/image';
@@ -6,14 +6,19 @@ import { useTheme } from 'next-themes';
 
 import { ButtonVariant, Input } from '../components';
 import images from '../assets';
+import { NFTContext } from '../context/NFTContext';
 
 const CreateNFT = () => {
+  const { uploadToIPFS } = useContext(NFTContext);
   const [fileUrl, setFileUrl] = useState(null);
   const [formInput, setFormInput] = useState({ price: '' });
   const { theme } = useTheme();
 
-  const onDrop = useCallback(() => {
+  const onDrop = useCallback(async (acceptedFile) => {
     // upload img to the ipfs
+    const url = await uploadToIPFS(acceptedFile[0]);
+    console.log(url);
+    setFileUrl(url);
   }, []);
   const {
     getRootProps,
@@ -35,23 +40,23 @@ const CreateNFT = () => {
   ), [isDragActive, isDragAccept, isDragReject]);
 
   return (
-    <div className="flex justify-center sm:px-4 p-12">
+    <div className="flex justify-center p-12 sm:px-4">
       <div className="w-3/5 md:w-full">
-        <h1 className="font-poppins dark:text-white text-nft-black-1 text-2xl minlg:text-4xl font-semibold ml-4 xs:ml-0">
+        <h1 className="ml-4 text-2xl font-semibold font-poppins dark:text-white text-nft-black-1 minlg:text-4xl xs:ml-0">
           Create new NFT
         </h1>
         <div className="mt-16">
-          <p className="font-poppins dark:text-white text-nft-black-1 font-semibold text-xl">
+          <p className="text-xl font-semibold font-poppins dark:text-white text-nft-black-1">
             Upload File
           </p>
           <div className="mt-4">
             <div {...getRootProps()} className={fileStyle}>
               <input {...getInputProps()} />
-              <div className="flexCenter flex-col text-center">
-                <p className="font-poppins dark:text-white text-nft-black-1 font-semibold text-xl">
+              <div className="flex-col text-center flexCenter">
+                <p className="text-xl font-semibold font-poppins dark:text-white text-nft-black-1">
                   JPG, PNG, GIF, SVG, WEBM. Max 100mb.
                 </p>
-                <div className="my-12 w-full flex justify-center">
+                <div className="flex justify-center w-full my-12">
                   <Image
                     src={images.upload}
                     width={100}
@@ -61,10 +66,10 @@ const CreateNFT = () => {
                     className={theme === 'light' && 'filter invert'}
                   />
                 </div>
-                <p className="font-poppins dark:text-white text-nft-black-1 font-semibold text-sm">
+                <p className="text-sm font-semibold font-poppins dark:text-white text-nft-black-1">
                   Drag and Drop File
                 </p>
-                <p className="font-poppins dark:text-white text-nft-black-1 font-semibold text-sm mt-2">
+                <p className="mt-2 text-sm font-semibold font-poppins dark:text-white text-nft-black-1">
                   or Browse media on your device
                 </p>
               </div>
@@ -97,7 +102,7 @@ const CreateNFT = () => {
           placeholder="NFT Price"
           handleClick={(e) => setFormInput({ ...formInput, price: e.target.value })}
         />
-        <div className="mt-7 w-full flex justify-end">
+        <div className="flex justify-end w-full mt-7">
           <ButtonVariant
             btnName="Create NFT"
             classname="rounded-xl"
