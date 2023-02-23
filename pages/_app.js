@@ -1,30 +1,24 @@
+import Script from 'next/script';
 import { ThemeProvider } from 'next-themes';
-import '@fortawesome/fontawesome-svg-core/styles.css'; // import Font Awesome CSS
-import { config } from '@fortawesome/fontawesome-svg-core';
-
-import { Navbar, Footer } from '../components';
+/* eslint-disable import/no-unresolved */
+import { NFTProvider } from '../context/NFTContext';
 import '../styles/globals.css';
+import { Footer, Navbar } from '../components';
+//
+const App = ({ Component, pageProps }) => (
+  <NFTProvider>
+    <ThemeProvider attribute="class">
+      <div className="min-h-screen bg-white dark:bg-nft-dark">
+        <Navbar />
+        <div className="pt-65">
+          <Component {...pageProps} />
+        </div>
 
-config.autoAddCss = false; // Tell Font Awesome to skip adding the CSS automatically since it's being imported above
-
-const MyApp = ({ Component, pageProps }) => (
-  <ThemeProvider attribute="class">
-    <div className="min-h-screen bg-white dark:bg-nft-dark">
-      <Navbar />
-      <div className="pt-65">
-        <Component {...pageProps} />
+        <Footer />
       </div>
-      <Footer />
-    </div>
-  </ThemeProvider>
+
+      <Script src="https://kit.fontawesome.com/94806df23e.js" crossorigin="anonymous" />
+    </ThemeProvider>
+  </NFTProvider>
 );
-
-export default MyApp;
-
-/* Font awesome Available Fonts /node_modules/@fortawesome/free-solid-svg-icons/index.d.ts
- EX import:
-   <FontAwesomeIcon
-        icon={faSearch}
-        style={{ fontSize: 100, color: "blue" }}
-      />
- */
+export default App;
