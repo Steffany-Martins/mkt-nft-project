@@ -119,7 +119,7 @@ const Navbar = () => {
       <div className="flex flex-row justify-start flex-1">
         <Link href="/" passHref>
           <div className="cursor-pointer flexCenter md:hidden" onClick={() => setActive('Explore NFTs')}>
-            <Image src={logo02} alt="logo" />
+            <Image src={logo02} alt="logo" width={32} height={32} />
             <p className="ml-1 text-lg font-semibold dark:text-white text-nft-black-1">CryptoKet</p>
           </div>
         </Link>
@@ -131,7 +131,7 @@ const Navbar = () => {
               setIsOpen(false);
             }}
           >
-            <Image src={logo02} alt="logo" />
+            <Image src={logo02} alt="logo" width={32} height={32} />
           </div>
         </Link>
       </div>

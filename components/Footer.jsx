@@ -25,7 +25,7 @@ const Footer = () => {
       <div className="flex flex-row w-full px-16 minmd:w-4/5 md:flex-col sm:px-4">
         <div className="flex-col flex-1 flexStart">
           <div className="cursor-pointer flexCenter">
-            <Image src={logo02} alt="logo" />
+            <Image src={logo02} alt="logo" width={32} height={32} />
             <p className="ml-1 text-lg font-semibold dark:text-white text-nft-black-1">
               CryptoKet
             </p>
