@@ -1,13 +1,31 @@
-# Sample Hardhat Project
+## NFT MARKET PROJECT 
+It's a market NFT project to create and buy nfts. You can be a seller or a owner of nfts with ETHER cryptocoin. 
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
+Technologies:
+- NEXT.JS with REACT.JS
+- Hardhat (transactions)
+- Using axios to request, ethers to manage selling nfts 
+- Using web3modal
+- Using React hooks and react Context.
+- Using Solidity (.sol) to create contracts to sell/buy nfts with Metamask
 
-Try running some of the following tasks:
+![Market NFT Project](https://github.com/Steffany-Martins/mkt-nft-project/blob/main/assets/localhost_3000_.png)
 
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.js
-```
+
+## To install the project
+
+`yarn` or `npm install`
+
+Create fake accounts to buy/sell, you can use MetaMask to import that: `npx hardhat node `
+<br/>
+You can run the project in your localhost: `yarn dev`
+## Metamask
+Metamask is an extension for chrome browser, it's a crypto wallet and you can install here: https://metamask.io/
+
+## API 
+Infura.io (storage for nfts) with dedicated endpoint (custom link: https://cryptoketsteffany-martins.infura-ipfs.io)
+
+<br/>
+Credits for the course <a href="https://www.completepathtojavascriptmastery.com/courses/category/next-js" target="_blank">JS PRO MASTERY</a> about NFT MarketPlace.
+<br/>
+<b>Made by Steffany-Martins</b>
