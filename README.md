@@ -1,13 +1,13 @@
 ## NFT MARKET PROJECT 
 It's a market NFT project to create and buy nfts. You can be a seller or a owner of nfts with ETHER cryptocoin. 
 
-Technologies:
+<b>Technologies:</b>
 - NEXT.JS with REACT.JS
 - Hardhat (transactions)
 - Using axios to request, ethers to manage selling nfts 
 - Using web3modal
 - Using React hooks and react Context.
-- Using Solidity (.sol) to create contracts to sell/buy nfts with Metamask
+- Using Solidity language (.sol) to create contracts to sell/buy nfts with Metamask
 
 ![Market NFT Project](https://github.com/Steffany-Martins/mkt-nft-project/blob/main/assets/localhost_3000_.png)
 
