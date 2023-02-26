@@ -1,26 +1,21 @@
 
 import { useState, useMemo, useCallback, useContext } from 'react';
-import { useRouter } from 'next/router';
 import { useDropzone } from 'react-dropzone';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import { useTheme } from 'next-themes';
 
 import { NFTContext } from '../context/NFTContext';
 import { ButtonVariant, Input } from '../components';
 import upload from '../assets/upload.png';
 
-// const projectId = process.env.NEXT_PUBLIC_IPFS_PROJECT_ID;
-// const projectSecret = process.env.NEXT_PUBLIC_API_KEY_SECRET;
-// const auth = `Basic ${Buffer.from(`${projectId}:${projectSecret}`).toString('base64')}`;
-// const options = { host: 'ipfs.infura.io', protocol: 'https', port: 5001, headers: { authorization: auth } };
-
-// const client = ipfsHttpClient(options);
-// const dedicatedEndPoint = 'https://fanny.infura-ipfs.io';
-
 const CreateItem = () => {
-  const { isLoadingNFT, uploadToIPFS } = useContext(NFTContext);
+  const { isLoadingNFT, uploadToIPFS, createMarket } = useContext(NFTContext);
   const [fileUrl, setFileUrl] = useState(null);
   const { theme } = useTheme();
+  const [formInput, updateFormInput] = useState({ price: '', name: '', description: '' });
+
+  const router = useRouter();
 
   const onDrop = useCallback(async (acceptedFile) => {
     const url = await uploadToIPFS(acceptedFile[0]);
@@ -43,29 +38,6 @@ const CreateItem = () => {
        ${isDragReject ? ' border-file-reject ' : ''}`),
     [isDragActive, isDragReject, isDragAccept],
   );
-
-  const [formInput, updateFormInput] = useState({ price: '', name: '', description: '' });
-  const router = useRouter();
-
-  const createMarket = async () => {
-    const { name, description, price } = formInput;
-    if (!name || !description || !price || !fileUrl) return;
-    /* first, upload to IPFS */
-    // const data = JSON.stringify({ name, description, image: fileUrl });
-    try {
-      // const added = await client.add(data);
-      console.log(1);
-      // const url = `${dedicatedEndPoint}/ipfs/${added.path}`;
-      /* after file is uploaded to IPFS, pass the URL to save it on Polygon */
-      console.log(2);
-      // await createSale(url, formInput.price);
-      router.push('/');
-      console.log(3);
-    } catch (error) {
-      console.log('Error uploading file: ', error);
-    }
-  };
-
   if (isLoadingNFT) {
     return (
       <div className="flexCenter" style={{ height: '51vh' }}>
@@ -142,7 +114,7 @@ const CreateItem = () => {
             btnName="Create Item"
             btnType="primary"
             classStyles="rounded-xl"
-            handleClick={createMarket}
+            handleClick={() => createMarket(formInput, fileUrl, router)}
           />
         </div>
       </div>
