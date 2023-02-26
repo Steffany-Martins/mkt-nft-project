@@ -9,6 +9,7 @@ import discord from '../assets/discord.png';
 import ButtonVariant from './ButtonVariant';
 
 const FooterLinks = ({ heading, items }) => (
+
   <div className="items-start justify-start flex-1">
     <h3 className="mb-10 text-xl font-semibold font-poppins dark:text-white text-nft-black-1">{heading}</h3>
     {items.map((item, index) => (
@@ -31,16 +32,14 @@ const Footer = () => {
           </div>
           <p className="mt-6 text-base font-semibold font-poppins dark:text-white text-nft-black-1">Get the latest Updates </p>
           <div className="mt-6 bg-white border rounded-md flexBetween md:w-full minlg:w-557 w-357 dark:bg-nft-black-2 dark:border-nft-black-2 border-nft-gray-2">
-            <form action="mailto:email@provedor.com.br">
-              <input
-                type="email"
-                placeholder="Your Email"
-                className="flex-1 w-full h-full px-4 text-xs font-normal bg-white rounded-md outline-none dark:bg-nft-black-2 dark:text-white text-nft-black-1 minlg:text-lg"
-              />
-              <div className="flex-initial">
-                <ButtonVariant type="submit" btnName="Email me" classStyles="rounded-md" />
-              </div>
-            </form>
+            <input
+              type="email"
+              placeholder="Your Email"
+              className="flex-1 w-full h-full px-4 text-xs font-normal bg-white rounded-md outline-none dark:bg-nft-black-2 dark:text-white text-nft-black-1 minlg:text-lg"
+            />
+            <div className="flex-initial">
+              <ButtonVariant btnName="Email me" classStyles="rounded-md" />
+            </div>
           </div>
         </div>
         <div className="flex-wrap flex-1 ml-10 flexBetweenStart md:ml-0 md:mt-8">
