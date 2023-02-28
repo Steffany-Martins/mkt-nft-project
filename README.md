@@ -1,6 +1,8 @@
 ## NFT MARKET PROJECT 
 It's a market NFT project to create and buy nfts. You can be a seller or a owner of nfts with ETHER cryptocoin. 
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/009c375a-339f-4394-9274-2ecd36226b53/deploy-status)](https://app.netlify.com/sites/preeminent-chaja-b30cac/deploys)
+
 <b>Technologies:</b>
 - NEXT.JS with REACT.JS
 - Hardhat (transactions)
