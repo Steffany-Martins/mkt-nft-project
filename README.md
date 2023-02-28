@@ -22,6 +22,9 @@ Create fake accounts to buy/sell, you can use MetaMask to import that: `npx hard
 <br/>
 You can run the project in your localhost: `yarn dev`
 
+## Just connect your wallet with this deploy on Netlify: 
+https://main--preeminent-chaja-b30cac.netlify.app/
+
 ## Metamask
 Metamask is an extension for chrome browser, it's a crypto wallet and you can install here: https://metamask.io/
 
